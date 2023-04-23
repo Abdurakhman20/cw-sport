@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     dataClass.cpp \
+    dataModel.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     dataClass.h \
+    dataModel.h \
     mainwindow.h
 
 FORMS += \

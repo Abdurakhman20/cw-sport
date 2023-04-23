@@ -4,7 +4,7 @@
 #include <QString>
 #include <QVariant>
 
-class Supplier {
+class DataClass {
 private:
     int mID;
     QString mName;
@@ -15,36 +15,35 @@ private:
     QString mWorkingHours;
     QString mWebsiteAddress;
 public:
-    Supplier();
-    Supplier(
-            const int mID,
+    DataClass();
+    DataClass(const int mID,
             const QString mName,
             const QString mCity,
             const QString mAddress,
             const QString mBuildingDate,
             const int mCapacity,
             const QString mWorkingHours,
-            const QString mWebsiteAddress,
+            const QString mWebsiteAddress
             );
-    void setId(const int id);
+    void setID(const int id);
     void setName(const QString name);
     void setCity(const QString city);
     void setAddress(const QString address);
-    void setBuildingDate(const QString mBuildingDate);
-    void setCapacity(const int mCapacity);
-    void setWorkingHours(const QString mWorkingHours);
-    void setWebsiteAddress(const QString mWebsiteAddress);
+    void setBuildingDate(const QString buildingDate);
+    void setCapacity(const int capacity);
+    void setWorkingHours(const QString workingHours);
+    void setWebsiteAddress(const QString websiteAddress);
 
-    int getId();
+    int getID();
     QString getName() const;
     QString getCity() const;
-    QString getAdress() const;
+    QString getAddress() const;
     QString getBuildingDate() const;
-    int getCapacity();
+    int getCapacity() const;
     QString getWorkingHours() const;
-    QString getWebsiteAdress() const;
+    QString getWebsiteAddress() const;
 
 };
-Q_DECLARE_METATYPE(Supplier);
+Q_DECLARE_METATYPE(DataClass);
 
 #endif // DATACLASS_H
