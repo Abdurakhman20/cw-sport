@@ -56,7 +56,6 @@ void MainWindow::on_actionOpen_triggered()
         loadFile(filePath);
 }
 
-
 void MainWindow::loadFile(const QString &filePath) {
     QFile file(filePath);
 
@@ -171,4 +170,3 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     if (selectedItem == deleteAction)
         tableModel->removeRow(index.row());
 }
-

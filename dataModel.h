@@ -3,7 +3,6 @@
 
 #include <QAbstractTableModel>
 #include <QList>
-
 #include "dataClass.h"
 
 

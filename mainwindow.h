@@ -44,4 +44,5 @@ private:
     void showContextMenu(const QPoint& pos);
 
 };
+
 #endif // MAINWINDOW_H
