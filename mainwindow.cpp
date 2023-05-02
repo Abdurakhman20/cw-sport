@@ -14,10 +14,13 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , tableModel(new DataModel(this))
+    , proxyModel(new QSortFilterProxyModel(this)) //1
 {
     ui->setupUi(this);
 
     setSettings();
+
+    ui->tableView->setSortingEnabled(true); //2
 
     ui->tableView->setModel(tableModel);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
@@ -67,6 +70,8 @@ void MainWindow::loadFile(const QString &filePath) {
                              .arg(file.errorString()));
         return;
     }
+    proxyModel->setSourceModel(tableModel);//
+    ui->tableView->setModel(proxyModel);//3
 
     openFileFlag = true;
     QTextStream in(&file);
@@ -163,10 +168,17 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     QModelIndex index=ui->tableView->indexAt(pos);
 
     QAction *deleteAction = new QAction("Удалить строчку", this);
+    QAction *addAction = new QAction(tr("Добавить строчку"), this);//4
 
     menu->addAction(deleteAction);
+    menu->addAction(addAction);//5
     QAction *selectedItem = menu->exec(ui->tableView->viewport()->mapToGlobal(pos));
 
     if (selectedItem == deleteAction)
         tableModel->removeRow(index.row());
+    else if(selectedItem != deleteAction) {
+        DataClass newDataClass;
+        newDataClass.setID(tableModel->rowCount()+1);
+        tableModel->insertRow(tableModel->rowCount(),newDataClass);
+    }
 }

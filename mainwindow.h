@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QStandardItemModel>
 #include <vector>
+#include <QSortFilterProxyModel>
 
 #include "dataClass.h"
 #include "dataModel.h"
@@ -32,6 +33,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     DataModel *tableModel;
+    QSortFilterProxyModel *proxyModel;
     bool openFileFlag = false;
 
     void getSettings();
