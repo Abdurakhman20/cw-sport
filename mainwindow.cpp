@@ -176,7 +176,7 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 
     if (selectedItem == deleteAction)
         tableModel->removeRow(index.row());
-    else if(selectedItem != deleteAction) {
+    else if(selectedItem == deleteAction) {
         DataClass newDataClass;
         newDataClass.setID(tableModel->rowCount()+1);
         tableModel->insertRow(tableModel->rowCount(),newDataClass);
