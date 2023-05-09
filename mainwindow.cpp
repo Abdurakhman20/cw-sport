@@ -14,13 +14,14 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , tableModel(new DataModel(this))
-    , proxyModel(new QSortFilterProxyModel(this)) //1
+    , searchTableModel(new DataModel(this))
+    , proxyModel(new QSortFilterProxyModel(this))
 {
     ui->setupUi(this);
 
     setSettings();
 
-    ui->tableView->setSortingEnabled(true); //2
+    ui->tableView->setSortingEnabled(true);
 
     ui->tableView->setModel(tableModel);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
@@ -70,8 +71,8 @@ void MainWindow::loadFile(const QString &filePath) {
                              .arg(file.errorString()));
         return;
     }
-    proxyModel->setSourceModel(tableModel);//
-    ui->tableView->setModel(proxyModel);//3
+    proxyModel->setSourceModel(tableModel);
+    ui->tableView->setModel(proxyModel);
 
     openFileFlag = true;
     QTextStream in(&file);
@@ -155,23 +156,16 @@ void MainWindow::saveFile(const QString &filePathAndName) {
     }
 }
 
-void MainWindow::on_actionAdd_triggered()
-{
-    DataClass newDataClass;
-    tableModel->insertRow(tableModel->rowCount(), newDataClass);
-}
-
-
 void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 {
     QMenu *menu=new QMenu(this);
     QModelIndex index=ui->tableView->indexAt(pos);
 
     QAction *deleteAction = new QAction("Удалить строчку", this);
-    QAction *addAction = new QAction(tr("Добавить строчку"), this);//4
+    QAction *addAction = new QAction(tr("Добавить строчку"), this);
 
     menu->addAction(deleteAction);
-    menu->addAction(addAction);//5
+    menu->addAction(addAction);
     QAction *selectedItem = menu->exec(ui->tableView->viewport()->mapToGlobal(pos));
 
     if (selectedItem == deleteAction)
@@ -182,3 +176,57 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
         tableModel->insertRow(tableModel->rowCount(),newDataClass);
     }
 }
+
+void MainWindow::on_pushButton_clicked()
+{
+    QList<DataClass> dataClasses = tableModel->getData();
+    QString searchText = ui->textEdit->toPlainText();
+    if(searchText == "") return;
+    ui->textEdit->clear();
+    int count = 0;
+    for (int row = 0; row < tableModel->rowCount(); row++) {
+        QString name = dataClasses[row].getName();
+
+        if(searchText == name) {
+            DataClass newDataClass;
+            newDataClass.setID(count);
+            newDataClass.setName(dataClasses[row].getName());
+            newDataClass.setCity(dataClasses[row].getCity());
+            newDataClass.setAddress(dataClasses[row].getAddress());
+            newDataClass.setBuildingDate(dataClasses[row].getBuildingDate());
+            newDataClass.setCapacity(dataClasses[row].getCapacity());
+            newDataClass.setWorkingHours(dataClasses[row].getWorkingHours());
+            newDataClass.setWebsiteAddress(dataClasses[row].getWebsiteAddress());
+            searchTableModel->insertRow(count, newDataClass);
+            count++;
+
+            for(int newRow = 0; newRow < searchTableModel->rowCount(); newRow++) {
+                searchTableModel->setData(searchTableModel->index(newRow, 0), dataClasses[row].getName());
+                searchTableModel->setData(searchTableModel->index(newRow, 1), dataClasses[row].getCity());
+                searchTableModel->setData(searchTableModel->index(newRow, 2), dataClasses[row].getAddress());
+                searchTableModel->setData(searchTableModel->index(newRow, 3), dataClasses[row].getBuildingDate());
+                searchTableModel->setData(searchTableModel->index(newRow, 4), dataClasses[row].getCapacity());
+                searchTableModel->setData(searchTableModel->index(newRow, 5), dataClasses[row].getWorkingHours());
+                searchTableModel->setData(searchTableModel->index(newRow, 6), dataClasses[row].getWebsiteAddress());
+            }
+
+        }
+    }
+    if(searchTableModel->rowCount() == 0){
+        QMessageBox::warning(this, tr("Application"), tr("Couldn't find a company with that name!"));
+        return;
+    }
+    ui->tableView->setModel(searchTableModel);
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    int rowCount = searchTableModel->rowCount();
+    for (int row = rowCount-1; row >= 0; row--) {
+        searchTableModel->removeRow(row);
+    }
+
+    ui->tableView->setModel(tableModel);
+}
+

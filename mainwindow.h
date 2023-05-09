@@ -26,13 +26,16 @@ private slots:
 
     void on_actionSave_triggered();
 
-    void on_actionAdd_triggered();
-
     void on_tableView_customContextMenuRequested(const QPoint &pos);
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;
     DataModel *tableModel;
+    DataModel *searchTableModel;
     QSortFilterProxyModel *proxyModel;
     bool openFileFlag = false;
 
