@@ -60,6 +60,51 @@
      <string>Go Back</string>
     </property>
    </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>621</x>
+      <y>10</y>
+      <width>201</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Search by name</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Search by city</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Search by address</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Search by building date</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Search by capacity</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Search by working hours</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Search by website address</string>
+     </property>
+    </item>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

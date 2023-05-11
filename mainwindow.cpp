@@ -177,17 +177,51 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
     }
 }
 
+// Search
+
+void MainWindow::on_comboBox_activated(int index)
+{
+    tableModel->onColumnSelected(index);
+}
+
 void MainWindow::on_pushButton_clicked()
 {
     QList<DataClass> dataClasses = tableModel->getData();
     QString searchText = ui->textEdit->toPlainText();
     if(searchText == "") return;
     ui->textEdit->clear();
+    int columnInd = tableModel->getSelectedColumn();
+
     int count = 0;
     for (int row = 0; row < tableModel->rowCount(); row++) {
-        QString name = dataClasses[row].getName();
+        QString value;
+        switch (columnInd) {
+        case 0:
+            value = dataClasses[row].getName();
+            break;
+        case 1:
+            value = dataClasses[row].getCity();
+            break;
+        case 2:
+            value = dataClasses[row].getAddress();
+            break;
+        case 3:
+            value = dataClasses[row].getBuildingDate();
+            break;
+        case 4:
+            value = dataClasses[row].getCapacity();
+            break;
+        case 5:
+            value = dataClasses[row].getWorkingHours();
+            break;
+        case 6:
+            value = dataClasses[row].getWebsiteAddress();
+            break;
+        default:
+            break;
+        }
 
-        if(searchText == name) {
+        if(searchText == value) {
             DataClass newDataClass;
             newDataClass.setID(count);
             newDataClass.setName(dataClasses[row].getName());
@@ -213,7 +247,7 @@ void MainWindow::on_pushButton_clicked()
         }
     }
     if(searchTableModel->rowCount() == 0){
-        QMessageBox::warning(this, tr("Application"), tr("Couldn't find a company with that name!"));
+        QMessageBox::warning(this, tr("Application"), tr("Couldn't find a company with that value!"));
         return;
     }
     ui->tableView->setModel(searchTableModel);
@@ -229,4 +263,7 @@ void MainWindow::on_pushButton_2_clicked()
 
     ui->tableView->setModel(tableModel);
 }
+
+
+
 

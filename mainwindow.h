@@ -32,6 +32,8 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_comboBox_activated(int index);
+
 private:
     Ui::MainWindow *ui;
     DataModel *tableModel;

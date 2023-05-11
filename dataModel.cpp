@@ -106,16 +106,6 @@ bool DataModel::removeRow(const int position) {
     return true;
 }
 
-void DataModel::sort(int column, Qt::SortOrder order) {
-//        Q_UNUSED(column);
-//            emit layoutAboutToBeChanged();
-//            if (order == Qt::AscendingOrder)
-//                std::sort(dataClasses.begin(), dataClasses.end(), std::less<DataClass>());
-//            else
-//                std::sort(dataClasses.begin(), dataClasses.end(), std::greater<DataClass>());
-//            emit layoutChanged();
-}
-
 const QList<DataClass> &DataModel::getData() const {
     return dataClasses;
 }
@@ -152,3 +142,10 @@ QVariant DataModel::headerData(int section, Qt::Orientation orientation, int rol
 
 }
 
+void DataModel::onColumnSelected(int index) {//4
+    selectedColumn = index;
+}
+
+int DataModel::getSelectedColumn() {//5
+    return selectedColumn;
+}
