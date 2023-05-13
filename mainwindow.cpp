@@ -181,89 +181,14 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 
 void MainWindow::on_comboBox_activated(int index)
 {
-    tableModel->onColumnSelected(index);
+    proxyModel->setFilterKeyColumn(index);
 }
 
-void MainWindow::on_pushButton_clicked()
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
-    QList<DataClass> dataClasses = tableModel->getData();
-    QString searchText = ui->textEdit->toPlainText();
-    if(searchText == "") return;
-    ui->textEdit->clear();
-    int columnInd = tableModel->getSelectedColumn();
+    QRegExp regex(arg1, Qt::CaseInsensitive, QRegExp::FixedString);
+    proxyModel->setFilterRegExp(regex);
 
-    int count = 0;
-    for (int row = 0; row < tableModel->rowCount(); row++) {
-        QString value;
-        switch (columnInd) {
-        case 0:
-            value = dataClasses[row].getName();
-            break;
-        case 1:
-            value = dataClasses[row].getCity();
-            break;
-        case 2:
-            value = dataClasses[row].getAddress();
-            break;
-        case 3:
-            value = dataClasses[row].getBuildingDate();
-            break;
-        case 4:
-            value = dataClasses[row].getCapacity();
-            break;
-        case 5:
-            value = dataClasses[row].getWorkingHours();
-            break;
-        case 6:
-            value = dataClasses[row].getWebsiteAddress();
-            break;
-        default:
-            break;
-        }
-
-        if(searchText == value) {
-            DataClass newDataClass;
-            newDataClass.setID(count);
-            newDataClass.setName(dataClasses[row].getName());
-            newDataClass.setCity(dataClasses[row].getCity());
-            newDataClass.setAddress(dataClasses[row].getAddress());
-            newDataClass.setBuildingDate(dataClasses[row].getBuildingDate());
-            newDataClass.setCapacity(dataClasses[row].getCapacity());
-            newDataClass.setWorkingHours(dataClasses[row].getWorkingHours());
-            newDataClass.setWebsiteAddress(dataClasses[row].getWebsiteAddress());
-            searchTableModel->insertRow(count, newDataClass);
-            count++;
-
-            for(int newRow = 0; newRow < searchTableModel->rowCount(); newRow++) {
-                searchTableModel->setData(searchTableModel->index(newRow, 0), dataClasses[row].getName());
-                searchTableModel->setData(searchTableModel->index(newRow, 1), dataClasses[row].getCity());
-                searchTableModel->setData(searchTableModel->index(newRow, 2), dataClasses[row].getAddress());
-                searchTableModel->setData(searchTableModel->index(newRow, 3), dataClasses[row].getBuildingDate());
-                searchTableModel->setData(searchTableModel->index(newRow, 4), dataClasses[row].getCapacity());
-                searchTableModel->setData(searchTableModel->index(newRow, 5), dataClasses[row].getWorkingHours());
-                searchTableModel->setData(searchTableModel->index(newRow, 6), dataClasses[row].getWebsiteAddress());
-            }
-
-        }
-    }
-    if(searchTableModel->rowCount() == 0){
-        QMessageBox::warning(this, tr("Application"), tr("Couldn't find a company with that value!"));
-        return;
-    }
-    ui->tableView->setModel(searchTableModel);
 }
-
-
-void MainWindow::on_pushButton_2_clicked()
-{
-    int rowCount = searchTableModel->rowCount();
-    for (int row = rowCount-1; row >= 0; row--) {
-        searchTableModel->removeRow(row);
-    }
-
-    ui->tableView->setModel(tableModel);
-}
-
-
-
 

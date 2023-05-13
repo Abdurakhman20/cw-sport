@@ -11,7 +11,7 @@ class DataModel : public QAbstractTableModel
     Q_OBJECT
     QList<DataClass> dataClasses;
     const int numOfColumns;
-    int selectedColumn; //1
+    int selectedColumn = 0; //1
 public:
     explicit DataModel(QObject *parent = nullptr);
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
