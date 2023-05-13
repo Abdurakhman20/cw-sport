@@ -22,7 +22,14 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
+TRANSLATIONS += translations/sport-project_ru_RU.ts \
+                translations/sport-project_de_DE.ts
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    translations/sport-project_de_DE.ts \
+    translations/sport-project_ru_RU.ts

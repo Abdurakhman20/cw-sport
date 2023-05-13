@@ -6,12 +6,18 @@
 #include <vector>
 #include <QSortFilterProxyModel>
 #include <QRegExp>
+#include <QTranslator>
 #include "dataClass.h"
 #include "dataModel.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+/// Делаем предварительное(опережающее, упреждающее) объявление
+class QActionGroup;
+class QLabel;
+
 
 class MainWindow : public QMainWindow
 {
@@ -32,21 +38,39 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
+    /// Для демонстрации работы с диалоговым окном создадим слот "open()"
+    void open();
+
+    /// Слот (метод) переключает язык программы
+    void switchLanguage(QAction *action);
+
+
 private:
     Ui::MainWindow *ui;
     DataModel *tableModel;
-    DataModel *searchTableModel;
     QSortFilterProxyModel *proxyModel;
-    bool openFileFlag = false;
 
+    bool openFileFlag = false;
     void getSettings();
     void setSettings();
     void initTable();
     void setHeaders();
     void loadFile(const QString &filePathAndName);
     void saveFile(const QString &filePathAndName);
-
     void showContextMenu(const QPoint& pos);
+
+
+    QTranslator appTranslator;
+    QTranslator qtTranslator;
+
+    /// Список доступных переводов в меню будет формироваться динамически
+    QActionGroup *languageActionGroup;
+    QLabel *label;
+    /// Переменная где будет храниться путь к файлам перевода "*.qm"
+    QString qmPath;
+
+    /// Метод для создания языкового меню
+    void createLanguageMenu();
 
 };
 

@@ -11,7 +11,7 @@ class DataModel : public QAbstractTableModel
     Q_OBJECT
     QList<DataClass> dataClasses;
     const int numOfColumns;
-    int selectedColumn = 0; //1
+
 public:
     explicit DataModel(QObject *parent = nullptr);
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -22,8 +22,6 @@ public:
     bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
     bool insertRow(int position, const DataClass &value);
     bool removeRow(const int position);
-    void onColumnSelected(int index); //2
-    int getSelectedColumn();//3
     const QList<DataClass> &getData() const;
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
 };

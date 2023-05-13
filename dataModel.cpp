@@ -122,15 +122,15 @@ QVariant DataModel::headerData(int section, Qt::Orientation orientation, int rol
         case 1:
             return QString(tr("City"));
         case 2:
-            return QString("Address");
+            return QString(tr("Address"));
         case 3:
-            return QString("Building Date");
+            return QString(tr("Building Date"));
         case 4:
-            return QString("Capacity");
+            return QString(tr("Capacity"));
         case 5:
-            return QString("Working Hours");
+            return QString(tr("Working Hours"));
         case 6:
-            return QString("Website Address");
+            return QString(tr("Website Address"));
 
         }
     }
@@ -142,10 +142,4 @@ QVariant DataModel::headerData(int section, Qt::Orientation orientation, int rol
 
 }
 
-void DataModel::onColumnSelected(int index) {//4
-    selectedColumn = index;
-}
 
-int DataModel::getSelectedColumn() {//5
-    return selectedColumn;
-}
