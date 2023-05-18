@@ -211,6 +211,13 @@ void MainWindow::loadFile(const QString &filePath) {
 
     openFileFlag = true;
     QTextStream in(&file);
+
+    QString check = in.readLine();
+    if(check != "adr_usm") {
+        QMessageBox::warning(this, tr("Application!"), tr("Unsupported file!"));
+        return;
+    }
+
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     int rowCount = tableModel->rowCount();
@@ -275,6 +282,7 @@ void MainWindow::saveFile(const QString &filePathAndName) {
 
     QTextStream out(&file);
     QList<DataClass> dataClasses = tableModel->getData();
+    out << "adr_usm\n";
 
     for (DataClass dataClass : dataClasses) {
 
@@ -328,4 +336,12 @@ void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 }
 
 
+void MainWindow::on_actionAbout_the_Developer_triggered()
+{
+    QMessageBox::about(this, tr("About the developer"),
+            tr("Developer: Usmanov Abdurakhman Khasmagamedovich\n"
+            "E-mail: ausmanov706@gmail.com\n"
+            "Faculty: Information Systems and Technologies\n"
+            "Group: ICTMS-2-5"));
+}
 

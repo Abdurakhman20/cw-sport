@@ -109,15 +109,22 @@
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
     <addaction name="actionClose"/>
-    <addaction name="actionAboutQt"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
     <property name="title">
      <string>Language</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuInfo">
+    <property name="title">
+     <string>Info</string>
+    </property>
+    <addaction name="actionAbout_the_Developer"/>
+    <addaction name="actionAboutQt"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuLanguage"/>
+   <addaction name="menuInfo"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
@@ -135,9 +142,9 @@
     <string>Close</string>
    </property>
   </action>
-  <action name="actionAdd">
+  <action name="actionAbout_the_Developer">
    <property name="text">
-    <string>Add</string>
+    <string>About the Developer</string>
    </property>
   </action>
   <action name="actionAboutQt">

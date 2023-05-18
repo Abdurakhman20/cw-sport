@@ -92,32 +92,41 @@
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="116"/>
+        <location filename="../mainwindow.ui" line="115"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="125"/>
+        <location filename="../mainwindow.ui" line="120"/>
+        <source>Info</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="132"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="130"/>
+        <location filename="../mainwindow.ui" line="137"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="135"/>
+        <location filename="../mainwindow.ui" line="142"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="140"/>
-        <source>Add</source>
-        <translation>Добавить</translation>
+        <location filename="../mainwindow.ui" line="147"/>
+        <source>About the Developer</source>
+        <translation>О разработчике</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="145"/>
+        <source>Add</source>
+        <translation type="vanished">Добавить</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="152"/>
         <source>AboutQt</source>
         <translation>Про Qt</translation>
     </message>
@@ -146,6 +155,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="203"/>
+        <location filename="../mainwindow.cpp" line="217"/>
         <source>Application!</source>
         <translation>Приложение!</translation>
     </message>
@@ -156,25 +166,46 @@
         <translation>Не удается прочитать файл %1:\n%2!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="270"/>
+        <location filename="../mainwindow.cpp" line="217"/>
+        <source>Unsupported file!</source>
+        <translation>Не поддерживаемый файл!</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="277"/>
         <source>Application</source>
         <translation>Приложение</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="271"/>
+        <location filename="../mainwindow.cpp" line="278"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Не удается записать файл %1:\n%2.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="299"/>
+        <location filename="../mainwindow.cpp" line="307"/>
         <source>Remove row</source>
         <translation>Удалить строку</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="300"/>
+        <location filename="../mainwindow.cpp" line="308"/>
         <source>Add row</source>
         <translation>Добавить строку</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="341"/>
+        <source>About the developer</source>
+        <translation>О разработчике</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="342"/>
+        <source>Developer: Usmanov Abdurakhman Khasmagamedovich
+E-mail: ausmanov706@gmail.com
+Faculty: Information Systems and Technologies
+Group: ICTMS-2-5</source>
+        <translation>Разработчик: Усманов Абдурахман Хасмагамедович
+почта: ausmanov706@gmail.com
+Факультет: Информационные системы и технологии
+Группа: ИЦТМС-2-5</translation>
     </message>
 </context>
 </TS>

@@ -42,6 +42,8 @@ private slots:
     void switchLanguage(QAction *action);
 
 
+    void on_actionAbout_the_Developer_triggered();
+
 private:
     Ui::MainWindow *ui;
     DataModel *tableModel;
