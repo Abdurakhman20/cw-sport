@@ -38,9 +38,6 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
-    /// Для демонстрации работы с диалоговым окном создадим слот "open()"
-    void open();
-
     /// Слот (метод) переключает язык программы
     void switchLanguage(QAction *action);
 

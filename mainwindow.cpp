@@ -31,12 +31,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
 
 
-    connect(ui->actionOpen, &QAction::triggered,
-        this, &MainWindow::open);
     connect(ui->actionClose, &QAction::triggered,
         this, &MainWindow::close);
-    //connect(ui->actionAboutQt, &QAction::triggered,
-        //qApp, &QApplication::aboutQt);
+    connect(ui->actionAboutQt, &QAction::triggered,
+        qApp, &QApplication::aboutQt);
 
 
     qApp->installTranslator(&appTranslator);
@@ -52,27 +50,6 @@ MainWindow::~MainWindow()
     getSettings();
     delete ui;
     delete tableModel;
-}
-
-
-void MainWindow::open()
-{
-    /// Создаём диалоговое окно в динамической памяти
-    QFileDialog *fdialog = new QFileDialog(this);
-    fdialog->setAttribute(Qt::WA_DeleteOnClose);
-
-    /**
-     * Запрашиваем имя выбранного файла,
-     * но ничего с ним не делаем (просто демонстрация диалогового окна)
-     * Опция "DontUseNativeDialog" - это что бы не использовать родной диалог,
-     * а использовать диалог из библиотеки Qt.
-     */
-    fdialog->getOpenFileName(this,
-                             tr("Open Document"),
-                             QDir::currentPath(),
-                             QString(),
-                             nullptr,
-                             QFileDialog::DontUseNativeDialog);
 }
 
 
@@ -124,7 +101,7 @@ void MainWindow::createLanguageMenu()
          * перевода в linguist заменив English на соответствующий язык
          */
         QString language = translator.translate("MainWindow",
-                                                "German");
+                                                "English");
 
         /**
          * Создаём пункт в меню с i-ым языком по маске "&%1 %2",
