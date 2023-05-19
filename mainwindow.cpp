@@ -316,8 +316,10 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 
     menu->addAction(deleteAction);
     menu->addAction(addAction);
+    if(!openFileFlag) {
+        menu->setEnabled(false);
+    }
     QAction *selectedItem = menu->exec(ui->tableView->viewport()->mapToGlobal(pos));
-
     if (selectedItem == deleteAction)
         tableModel->removeRow(index.row());
     else if(selectedItem == addAction) {
