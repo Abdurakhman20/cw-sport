@@ -5,7 +5,7 @@
 #include <QStandardItemModel>
 #include <vector>
 #include <QSortFilterProxyModel>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QTranslator>
 #include "dataClass.h"
 #include "dataModel.h"

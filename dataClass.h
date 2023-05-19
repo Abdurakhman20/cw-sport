@@ -3,7 +3,7 @@
 
 #include <QString>
 #include <QVariant>
-
+ // Класс с данными из файла
 class DataClass {
 private:
     int mID;

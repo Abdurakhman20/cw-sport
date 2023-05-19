@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dateDelegate.h"
+#include "timeDelegate.h"
 
 #include <QFileDialog>
 #include <QMessageBox>
@@ -10,6 +12,7 @@
 #include <QLibraryInfo>
 #include <QLabel>
 #include <QDebug>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -29,6 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableView->setModel(tableModel);
     ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
+    ui->actionSave->setEnabled(false); /// Здесь мы отключаем пункт меню save, до открытия файла
+    ui->actionClose->setEnabled(false);/// Здесь мы отключаем пункт меню close, до открытия файла
 
 
     connect(ui->actionClose, &QAction::triggered,
@@ -244,6 +249,8 @@ void MainWindow::loadFile(const QString &filePath) {
     }
 
     initTable();
+    ui->actionSave->setEnabled(openFileFlag);
+    ui->actionClose->setEnabled(openFileFlag);
     QApplication::restoreOverrideCursor();
 }
 
@@ -313,10 +320,17 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
 
     if (selectedItem == deleteAction)
         tableModel->removeRow(index.row());
-    else if(selectedItem == deleteAction) {
+    else if(selectedItem == addAction) {
         DataClass newDataClass;
         newDataClass.setID(tableModel->rowCount()+1);
         tableModel->insertRow(tableModel->rowCount(),newDataClass);
+        // Установить делегата для столбца с датой
+        DateDelegate* dateDelegate = new DateDelegate();
+        ui->tableView->setItemDelegateForColumn(3, dateDelegate);
+
+        TimeDelegate* timeDelegate = new TimeDelegate();
+        ui->tableView->setItemDelegateForColumn(5, timeDelegate);
+
     }
 }
 
@@ -330,8 +344,8 @@ void MainWindow::on_comboBox_activated(int index)
 
 void MainWindow::on_lineEdit_textChanged(const QString &arg1)
 {
-    QRegExp regex(arg1, Qt::CaseInsensitive, QRegExp::FixedString);
-    proxyModel->setFilterRegExp(regex);
+    QRegularExpression regex(arg1, QRegularExpression::CaseInsensitiveOption);
+       proxyModel->setFilterRegularExpression(regex);
 
 }
 

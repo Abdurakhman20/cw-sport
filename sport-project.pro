@@ -11,13 +11,17 @@ CONFIG += c++17
 SOURCES += \
     dataClass.cpp \
     dataModel.cpp \
+    dateDelegate.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    timeDelegate.cpp
 
 HEADERS += \
     dataClass.h \
     dataModel.h \
-    mainwindow.h
+    dateDelegate.h \
+    mainwindow.h \
+    timeDelegate.h
 
 FORMS += \
     mainwindow.ui
