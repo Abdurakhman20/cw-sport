@@ -214,6 +214,13 @@ void MainWindow::loadFile(const QString &filePath) {
     proxyModel->setSourceModel(tableModel);
     ui->tableView->setModel(proxyModel);
 
+    // Установить делегата для столбца с датой
+    DateDelegate* dateDelegate = new DateDelegate();
+    ui->tableView->setItemDelegateForColumn(3, dateDelegate);
+
+    TimeDelegate* timeDelegate = new TimeDelegate();
+    ui->tableView->setItemDelegateForColumn(5, timeDelegate);
+
     openFileFlag = true;
     QTextStream in(&file);
 
@@ -326,12 +333,6 @@ void MainWindow::on_tableView_customContextMenuRequested(const QPoint &pos)
         DataClass newDataClass;
         newDataClass.setID(tableModel->rowCount()+1);
         tableModel->insertRow(tableModel->rowCount(),newDataClass);
-        // Установить делегата для столбца с датой
-        DateDelegate* dateDelegate = new DateDelegate();
-        ui->tableView->setItemDelegateForColumn(3, dateDelegate);
-
-        TimeDelegate* timeDelegate = new TimeDelegate();
-        ui->tableView->setItemDelegateForColumn(5, timeDelegate);
 
     }
 }
