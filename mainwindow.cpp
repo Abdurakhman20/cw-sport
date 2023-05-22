@@ -126,8 +126,8 @@ void MainWindow::createLanguageMenu()
          * пока пользователем не будет выбран другой пункт меню.
          */
         action->setCheckable(true);
-        // Задаём внутренние данные хранимые в i-ом пункте.
-        // В нашем случае это локаль вида "ru_RU"
+        /// Задаём внутренние данные хранимые в i-ом пункте.
+        /// В нашем случае это локаль вида "ru_RU"
         action->setData(locale);
 
         /// Добавляем i-ый пункт в меню на нашей форме "mainwindow.ui"
@@ -168,9 +168,6 @@ void MainWindow::switchLanguage(QAction *action)
      */
     ui->retranslateUi(this);
 
-    // Для элемента созданного динамический, но не на форме,
-    // надо заново задать текст, который сработает при переключении языка
-    label->setText(tr("Hello World!"));
 }
 
 
@@ -214,7 +211,7 @@ void MainWindow::loadFile(const QString &filePath) {
     proxyModel->setSourceModel(tableModel);
     ui->tableView->setModel(proxyModel);
 
-    // Установить делегата для столбца с датой
+    /// Установить делегата для столбца с датой
     DateDelegate* dateDelegate = new DateDelegate();
     ui->tableView->setItemDelegateForColumn(3, dateDelegate);
 
@@ -223,6 +220,7 @@ void MainWindow::loadFile(const QString &filePath) {
 
     openFileFlag = true;
     QTextStream in(&file);
+    in.setCodec("UTF-8");
 
     QString check = in.readLine();
     if(check != "adr_usm") {
@@ -360,5 +358,26 @@ void MainWindow::on_actionAbout_the_Developer_triggered()
             "E-mail: ausmanov706@gmail.com\n"
             "Faculty: Information Systems and Technologies\n"
             "Group: ICTMS-2-5"));
+}
+
+
+void MainWindow::on_actionNew_triggered()
+{
+    /// Запрашиваем у пользователя путь и имя нового файла через диалоговое окно
+    QString fileName = QFileDialog::getSaveFileName(this, tr("New File"),
+                                                    QDir::cleanPath("./.."), tr("Text files (*.txt *db)"));
+    /// Если пользователь не выбрал имя файла, выходим из функции
+    if (fileName.isEmpty()) {
+        return;
+    }
+    /// Создаем новый файл с заданным именем в указанной директории
+    QFile file(fileName);
+    /// Если не удалось создать файл, выводим сообщение об ошибке и выходим из функции
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, tr("Application"), tr("Cannot create file %1:\n%2").arg(file.errorString()));
+        return;
+    }
+    QTextStream out(&file);
+    out << "adr_usm\n";
 }
 

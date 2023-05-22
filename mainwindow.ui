@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1251</width>
+    <width>1261</width>
     <height>673</height>
    </rect>
   </property>
@@ -14,91 +14,67 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QTableView" name="tableView">
-    <property name="geometry">
-     <rect>
-      <x>25</x>
-      <y>51</y>
-      <width>1201</width>
-      <height>691</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>10</y>
-      <width>201</width>
-      <height>28</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>Search by name</string>
-     </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Search</string>
+      </property>
+     </widget>
     </item>
-    <item>
-     <property name="text">
-      <string>Search by city</string>
-     </property>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="lineEdit"/>
     </item>
-    <item>
-     <property name="text">
-      <string>Search by address</string>
-     </property>
+    <item row="0" column="2">
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>Search by name</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Search by city</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Search by address</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Search by building date</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Search by capacity</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Search by working hours</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Search by website address</string>
+       </property>
+      </item>
+     </widget>
     </item>
-    <item>
-     <property name="text">
-      <string>Search by building date</string>
-     </property>
+    <item row="1" column="0" colspan="3">
+     <widget class="QTableView" name="tableView"/>
     </item>
-    <item>
-     <property name="text">
-      <string>Search by capacity</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Search by working hours</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Search by website address</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>10</y>
-      <width>341</width>
-      <height>28</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>10</y>
-      <width>51</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Search</string>
-    </property>
-   </widget>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1251</width>
+     <width>1261</width>
      <height>25</height>
     </rect>
    </property>
@@ -109,6 +85,7 @@
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
     <addaction name="actionClose"/>
+    <addaction name="actionNew"/>
    </widget>
    <widget class="QMenu" name="menuLanguage">
     <property name="title">
@@ -150,6 +127,11 @@
   <action name="actionAboutQt">
    <property name="text">
     <string>AboutQt</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
    </property>
   </action>
  </widget>

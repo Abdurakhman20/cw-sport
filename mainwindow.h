@@ -44,6 +44,8 @@ private slots:
 
     void on_actionAbout_the_Developer_triggered();
 
+    void on_actionNew_triggered();
+
 private:
     Ui::MainWindow *ui;
     DataModel *tableModel;

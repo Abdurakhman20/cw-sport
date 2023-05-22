@@ -47,77 +47,82 @@
         <translation>Hauptfenster</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="38"/>
+        <location filename="../mainwindow.ui" line="32"/>
         <source>Search by name</source>
         <translation>Suche mit Name</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="43"/>
+        <location filename="../mainwindow.ui" line="37"/>
         <source>Search by city</source>
         <translation>Suche nach Stadt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="48"/>
+        <location filename="../mainwindow.ui" line="42"/>
         <source>Search by address</source>
         <translation>Suche nach Adresse</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="53"/>
+        <location filename="../mainwindow.ui" line="47"/>
         <source>Search by building date</source>
         <translation>Suche nach Baudatum</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="58"/>
+        <location filename="../mainwindow.ui" line="52"/>
         <source>Search by capacity</source>
         <translation>Suche nach Kapazität</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="63"/>
+        <location filename="../mainwindow.ui" line="57"/>
         <source>Search by working hours</source>
         <translation>Suche nach Arbeitszeiten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="68"/>
+        <location filename="../mainwindow.ui" line="62"/>
         <source>Search by website address</source>
         <translation>Suche nach Website Adresse</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="92"/>
+        <location filename="../mainwindow.ui" line="134"/>
+        <source>New</source>
+        <translation>Neu</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="21"/>
         <source>Search</source>
         <translation>Suche</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="107"/>
+        <location filename="../mainwindow.ui" line="83"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="115"/>
+        <location filename="../mainwindow.ui" line="92"/>
         <source>Language</source>
         <translation>Sprache</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="120"/>
+        <location filename="../mainwindow.ui" line="97"/>
         <source>Info</source>
         <translation>Die Info</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="132"/>
+        <location filename="../mainwindow.ui" line="109"/>
         <source>Open</source>
         <translation>Offen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="137"/>
+        <location filename="../mainwindow.ui" line="114"/>
         <source>Save</source>
         <translation>Speichern</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="142"/>
+        <location filename="../mainwindow.ui" line="119"/>
         <source>Close</source>
         <translation>Schließen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="147"/>
+        <location filename="../mainwindow.ui" line="124"/>
         <source>About the Developer</source>
         <translation>Über den Entwickler</translation>
     </message>
@@ -126,7 +131,7 @@
         <translation type="vanished">Hinzufügen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="152"/>
+        <location filename="../mainwindow.ui" line="129"/>
         <source>AboutQt</source>
         <translation>Über Qt</translation>
     </message>
@@ -135,7 +140,7 @@
         <translation type="vanished">Russisch</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="103"/>
+        <location filename="../mainwindow.cpp" line="108"/>
         <source>English</source>
         <translation>Deutsch</translation>
     </message>
@@ -144,60 +149,60 @@
         <translation type="vanished">Deutsch</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="168"/>
         <source>Hello World!</source>
-        <translation>Hallo Welt!</translation>
+        <translation type="vanished">Hallo Welt!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="113"/>
+        <location filename="../mainwindow.cpp" line="118"/>
         <source>&amp;%1 %2</source>
         <translation>&amp;%1 %2</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="203"/>
-        <location filename="../mainwindow.cpp" line="217"/>
+        <location filename="../mainwindow.cpp" line="205"/>
+        <location filename="../mainwindow.cpp" line="227"/>
         <source>Application!</source>
         <translation>Anwendung!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="204"/>
+        <location filename="../mainwindow.cpp" line="206"/>
         <source>Cannot read file %1:
 %2!</source>
         <translation>Datei kann nicht gelesen werden  %1:\n%2!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="217"/>
+        <location filename="../mainwindow.cpp" line="227"/>
         <source>Unsupported file!</source>
         <translation>Nicht unterstützte Datei!</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="277"/>
+        <location filename="../mainwindow.cpp" line="289"/>
+        <location filename="../mainwindow.cpp" line="377"/>
         <source>Application</source>
         <translation>Anwendung</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="278"/>
+        <location filename="../mainwindow.cpp" line="290"/>
         <source>Cannot write file %1:
 %2.</source>
         <translation>Datei kann nicht geschrieben werden  %1:\n%2.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="319"/>
         <source>Remove row</source>
         <translation>Zeile entfernen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="308"/>
+        <location filename="../mainwindow.cpp" line="320"/>
         <source>Add row</source>
         <translation>Zeile hinzufügen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="356"/>
         <source>About the developer</source>
         <translation>Über den Entwickler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="342"/>
+        <location filename="../mainwindow.cpp" line="357"/>
         <source>Developer: Usmanov Abdurakhman Khasmagamedovich
 E-mail: ausmanov706@gmail.com
 Faculty: Information Systems and Technologies
@@ -206,6 +211,22 @@ Group: ICTMS-2-5</source>
 E-Mail: ausmanov706@gmail.com
 Fakultät: Informationssysteme und Technologien
 Gruppe: ICTMS-2-5</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="367"/>
+        <source>New File</source>
+        <translation>Neu Datei</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="368"/>
+        <source>Text files (*.txt *db)</source>
+        <translation>Textdateien (*.txt *db)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="377"/>
+        <source>Cannot create file %1:
+%2</source>
+        <translation>Datei %1:%2 kann nicht erstellt werden</translation>
     </message>
 </context>
 </TS>
