@@ -293,6 +293,7 @@ void MainWindow::saveFile(const QString &filePathAndName) {
     }
 
     QTextStream out(&file);
+    out.setCodec("UTF-8");
     QList<DataClass> dataClasses = tableModel->getData();
     out << "adr_usm\n";
 
@@ -378,6 +379,7 @@ void MainWindow::on_actionNew_triggered()
         return;
     }
     QTextStream out(&file);
+    out.setCodec("UTF-8");
     out << "adr_usm\n";
 }
 
